@@ -5,11 +5,14 @@ import org.edu.cac.enums.Posicion;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-
+        /*
         Map<String, Integer> posiciones = new HashMap<>();
         posiciones.put("LFP", 2);
         posiciones.put("Copa Sudamericana", 1);
@@ -34,7 +37,7 @@ public class Main {
             Integer key = (Integer) it.next();
             System.out.println("Clave: " + key + " -> Valor: " + equipo1.getJugadores().get(key));
         }
-
+*/
         // INTERFACES y CLASES ABSTRACTAS
 
         // INTERFAZ: Contrato en donde se especifican
@@ -53,6 +56,39 @@ public class Main {
         // es decir, que no tenga cuerpo (solo la firma)
         // Puede tener métodos no abstractos (comunes)
 
+
+
+        // Programacion Funcional
+
+        // Interfaces Funcionales: Son interfaces con 1 unico metodo abstracto.
+        // @FuncionalInterface
+        // public void operacion(Integer x, Integer y);
+
+        // Expresiones lambda: Representan una operación -> (flecha) / metodo implementado.
+        // ej: s -> System.out.println(s)
+
+        // (La flecha lambda se realiza con el signo menos seguido del signo mayor que - > )
+
+
+        // Referencia a metodos: Utilizando el :: (operador de ambito), para hacer referencia a una funcion
+        // de una clase especifica (System.out::println)
+
+        // Streams: Encapsulamiento de Colecciones para trabajarlas mediante la concatenacion de diferentes
+        // métodos y filtros (que no mantienen estado), es decir, que no modifican al original.
+
+        //EJ:
+
+        List<String> nombres = List.of("Cristian", "Mariana", "Carlos", "Luciana");
+
+        List<String> nombresConC = nombres.stream()
+                .filter(nombre -> nombre.charAt(0) == 'C')
+                .collect(Collectors.toList());
+
+        System.out.println("Lista original:");
+        nombres.forEach(System.out::println);
+
+        System.out.println("Lista filtrada:");
+        nombresConC.forEach(System.out::println);
 
     }
 }
